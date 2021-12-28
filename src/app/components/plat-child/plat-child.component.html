@@ -1,0 +1,21 @@
+<div class="single_food_item media">
+    <img src="assets/img/food_menu/single_food_1.png" class="mr-3" alt="...">
+    <div class="media-body align-self-center">
+        <h3>{{platInput.name}}</h3>
+        <p>{{platInput.description}}</p>
+        <h5 [ngStyle]="{
+            color: priceColor(platInput.price)
+        }">
+            ${{platInput.price}}
+        </h5>
+        <h5 *ngIf="platInput.note">Note:
+            <span [ngClass]="{
+            chaabi: noteStyle(platInput.note)== '2',
+            family: noteStyle(platInput.note)== '1',
+            fiance: noteStyle(platInput.note)== '0'
+        }">
+                {{platInput.note}}
+            </span>
+        </h5>
+    </div>
+</div>

@@ -1,0 +1,42 @@
+<div style="margin-left: 50%;">
+    <app-loader *ngIf="!plats"></app-loader>
+</div>
+<div>
+    <button (click)="goToAdd()" class="btn btn-success">Add Plat</button>
+</div>
+<form>
+    <div class="text-center">
+        <label for="">Filter By plat name</label>
+        <input type="text" [(ngModel)]='term' [ngModelOptions]="{standalone:true}">
+    </div>
+</form>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Description</th>
+            <th>Image</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let plat of pageOfItems | myFilter:term">
+            <td>{{plat._id}}</td>
+            <td>{{plat.name}}</td>
+            <td>{{plat.price}}</td>
+            <td>{{plat.description}}</td>
+            <td style="width: 100px; height: 100px;"> <img [src]="plat.img" alt=""></td>
+            <td>
+                <button class="btn btn-success" (click)="goToPlatInfo(plat._id)">Display</button>
+                <button class="btn btn-info" (click)="goToEdit(plat._id)">Edit</button>
+                <button class="btn btn-danger" (click)="deletePlat(plat._id)">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+
+    <div class="card-footer pb-0 pt-3">
+        <jw-pagination [items]="plats" (changePage)="onChangePage($event)"></jw-pagination>
+    </div>
+</table>

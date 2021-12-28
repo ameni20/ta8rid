@@ -1,0 +1,54 @@
+<!--::Add Plat start::-->
+<section class="regervation_part section_padding" style="margin-top: 100px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-5">
+                <div class="section_tittle">
+                    <p>Add Chef</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="regervation_part_iner">
+                    <form [formGroup]="addChefForm">
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <input type="email" formControlName="name" class="form-control" id="inputEmail4"
+                                    placeholder="Name *">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <input type="text" formControlName="speciality" class="form-control" id="inputEmail4"
+                                    placeholder="Speciality *">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <input type="text" formControlName="experience" class="form-control" id="inputEmail4"
+                                    placeholder="Experience *">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <input type="file" class="form-control" style="visibility: hidden;"
+                                    (change)='onImageSelected($event)' #filePicker>
+                            </div>
+                        </div>
+                        <div style="text-align: center; margin-bottom: 50px;">
+                            <button class="btn btn-success" (click)="filePicker.click()">Please select chef
+                                image
+                            </button> <br>
+                            <img [src]="imagePreview" *ngIf="imagePreview"  width="200px" height="200px">
+                        </div>
+                        <div class="regerv_btn" style="text-align: center;">
+                            <button class="btn_4" (click)="addChef()">Add Chef</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--::Add Plat end::-->

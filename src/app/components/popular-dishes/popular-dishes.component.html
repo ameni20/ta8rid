@@ -1,0 +1,13 @@
+<!--::exclusive_item_part start::-->
+<section class="exclusive_item_part blog_item_section">
+    <div class="container">
+        <app-section-banner [bannerContent]="popularDishesBanner"></app-section-banner>
+        <div class="row">
+            <div class="col-sm-6 col-lg-4" *ngFor="let p of plats">
+                <app-plat [platInput]="p"></app-plat>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!--::exclusive_item_part end::-->

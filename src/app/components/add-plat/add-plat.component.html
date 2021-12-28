@@ -1,0 +1,60 @@
+<!--::Add Plat start::-->
+<section class="regervation_part section_padding" style="margin-top: 100px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-5">
+                <div class="section_tittle">
+                    <p>{{title}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="regervation_part_iner">
+                    <form #addPlatForm="ngForm" (ngSubmit)="addOrEditPlat()">
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <input type="email" [(ngModel)]="plat.name" [ngModelOptions]="{standalone:true}"
+                                    class="form-control" id="inputEmail4" placeholder="Name *">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <input type="text" [(ngModel)]="plat.description" [ngModelOptions]="{standalone:true}"
+                                    class="form-control" id="inputEmail4" placeholder="Description *">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <input type="number" [(ngModel)]="plat.price" [ngModelOptions]="{standalone:true}"
+                                    class="form-control" id="inputEmail4" placeholder="Price *">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <input type="number" [(ngModel)]="plat.note" [ngModelOptions]="{standalone:true}"
+                                    class="form-control" id="inputEmail4" placeholder="Note *">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <input type="file" class="form-control"  style="visibility: hidden;"
+                                    (change)='onImageSelected($event)' #filePicker>
+                            </div>
+                        </div>
+                        <div style="text-align: center; margin-bottom: 50px;">
+                            <span  class="btn btn-success" (click)="filePicker.click()">
+                                Please select plat image
+                            </span> <br>
+                            <img [src]="imagePreview" *ngIf="imagePreview" width="200px" height="200px">
+                        </div>
+                        <div class="regerv_btn">
+                            <button class="btn_4">{{title}}</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--::Add Plat end::-->
